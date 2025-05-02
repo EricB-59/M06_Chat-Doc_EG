@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colores principales con nombres genéricos */
+  --color-primary: #242331;
+  --color-secondary: #95a6a6;
+  --color-light: #bad1cd;
+  --color-special: #6f7a7f;
+
+  /* Gradientes lineales */
+  --gradient-horizontal: linear-gradient(
+    to right,
+    #242331,
+    #6f7a7f,
+    #95a6a6,
+    #bad1cd
+  );
+  --gradient-vertical: linear-gradient(
+    to bottom,
+    #242331,
+    #6f7a7f,
+    #95a6a6,
+    #bad1cd
+  );
+  --gradient-diagonal: linear-gradient(
+    45deg,
+    #242331,
+    #6f7a7f,
+    #95a6a6,
+    #bad1cd
+  );
+  --gradient-reversed: linear-gradient(
+    to right,
+    #bad1cd,
+    #95a6a6,
+    #6f7a7f,
+    #242331
+  );
+  --gradient-dark: linear-gradient(to right, #242331, #6f7a7f);
+  --gradient-light: linear-gradient(to right, #95a6a6, #bad1cd);
+  --gradient-radial: radial-gradient(#bad1cd, #95a6a6, #6f7a7f, #242331);
+}

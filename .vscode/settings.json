@@ -1,0 +1,9 @@
+{
+  "editor.fontLigatures": true,
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "workbench.editorAssociations": {
+    "*.svg": "default"
+  }
+}
