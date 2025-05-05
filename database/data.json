@@ -1,0 +1,101 @@
+{
+    "usuarios": [
+      {
+        "id": "u1",
+        "nombre": "Profesor",
+        "email": "profesor@centro.com"
+      },
+      {
+        "id": "u2",
+        "nombre": "Ana",
+        "email": "ana@centro.com"
+      },
+      {
+        "id": "u3",
+        "nombre": "Luis",
+        "email": "luis@centro.com"
+      },
+      {
+        "id": "u4",
+        "nombre": "Marta",
+        "email": "marta@centro.com"
+      }
+    ],
+    "parejas": [
+      {
+        "id": "p1",
+        "usuarios": ["u2", "u3"],
+        "salaId": "s3",
+        "documentoId": "d1"
+      }
+    ],
+    "salas": [
+      {
+        "id": "s1",
+        "nombre": "Sala Profesor",
+        "tipo": "publica",
+        "participantes": ["u1"]
+      },
+      {
+        "id": "s2",
+        "nombre": "Sala Alumnos",
+        "tipo": "publica",
+        "participantes": ["u2", "u3", "u4"]
+      },
+      {
+        "id": "s3",
+        "nombre": "Privado Ana - Luis",
+        "tipo": "privada",
+        "participantes": ["u2", "u3"],
+        "documentoId": "d1"
+      }
+    ],
+    "documentos": [
+      {
+        "id": "d1",
+        "salaId": "s3",
+        "titulo": "Ejercicio Ana-Luis",
+        "contenido": "Hola Luis, esta es la primera línea del documento.",
+        "lastModified": "2025-04-20T10:20:00"
+      }
+    ],
+    "mensajes": [
+      {
+        "id": "m1",
+        "salaId": "s1",
+        "emisorId": "u1",
+        "contenido": "Hola, esta es la sala del profesor.",
+        "timestamp": "2025-04-20T10:00:00"
+      },
+      {
+        "id": "m2",
+        "salaId": "s2",
+        "emisorId": "u2",
+        "contenido": "Hola compañeros.",
+        "timestamp": "2025-04-20T10:05:00"
+      },
+      {
+        "id": "m3",
+        "salaId": "s3",
+        "emisorId": "u2",
+        "contenido": "Hola Luis, ¿hacemos el ejercicio juntos?",
+        "timestamp": "2025-04-20T10:10:00"
+      },
+      {
+        "id": "m4",
+        "salaId": "s3",
+        "emisorId": "u3",
+        "contenido": "Sí, perfecto. Empiezo con el login.",
+        "timestamp": "2025-04-20T10:12:00"
+      },
+      {
+        "id": "m5",
+        "salaId": "s3",
+        "emisorId": "u2",
+        "tipo": "sistema",
+        "contenido": "Se ha creado un documento colaborativo para esta sala.",
+        "timestamp": "2025-04-20T10:15:00"
+      }
+    ]
+  }
+  
