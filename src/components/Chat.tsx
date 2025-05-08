@@ -1,11 +1,103 @@
-import { useState, useEffect } from "react";
 import React from "react";
+import { useState, useEffect } from "react";
+import MessageTemplate from "./MessageTemplate.tsx";
 
-import MessageComponent from "./Message";
-import { Message } from "../types/message";
+export type Message = {
+  author: string;
+  content: string;
+  timestamp: string;
+};
 
 function Chat() {
-  return <div></div>;
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [connected, setConnected] = useState(false);
+  const [message, setMessage] = useState("");
+  const [ws, setWs] = useState<WebSocket | null>(null);
+
+  useEffect(() => {
+    const socket = new WebSocket("ws://localhost:8000");
+
+    socket.onopen = () => {
+      setConnected(true);
+      setMessages((prev) => [
+        ...prev,
+        {
+          author: "system",
+          content: "¡Conectado al chat exitosamente!",
+          timestamp: new Date().toISOString(),
+        },
+      ]);
+    };
+
+    socket.onmessage = (event) => {
+      const messageObj = JSON.parse(event.data);
+      setMessages((prev) => [...prev, messageObj]);
+    };
+
+    socket.onerror = (error) => {
+      console.error("Error de WebSocket:", error);
+      setMessages((prev) => [
+        ...prev,
+        {
+          author: "system",
+          content: "Error de conexión",
+          timestamp: new Date().toISOString(),
+        },
+      ]);
+    };
+
+    socket.onclose = () => {
+      console.log("WebSocket desconectado");
+      setConnected(false);
+    };
+
+    setWs(socket);
+
+    return () => {
+      socket.close();
+    };
+  }, []);
+
+  const handleSend = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (ws && message.trim() && ws.readyState === WebSocket.OPEN) {
+      const messageObj = {
+        author: "user",
+        content: message,
+        timestamp: new Date().toISOString(),
+      };
+
+      ws.send(JSON.stringify(messageObj));
+
+      setMessage("");
+    }
+  };
+
+  return (
+    <article className="w-full h-full flex justify-between flex-col border-2 border-secondary p-6 rounded-4xl">
+      <li className="text-white list-none overflow-auto flex flex-col gap-2 px-4">
+        {messages.map((msg, index) => (
+          <MessageTemplate key={index} message={msg} />
+        ))}
+      </li>
+      <form onSubmit={handleSend} className="px-2 flex gap-5">
+        <input
+          id="inputMessage"
+          name="inputMessage"
+          placeholder="Type a message"
+          className="border-2 border-secondary w-full rounded-4xl p-2 text-white"
+          type="text"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          autoComplete="off"
+        />
+        <button type="submit" className="w-8 cursor-pointer">
+          <img src="icons/send.png" alt="" />
+        </button>
+      </form>
+      <script></script>
+    </article>
+  );
 }
 
 export default Chat;
