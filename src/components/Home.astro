@@ -1,5 +1,9 @@
+---
+import Login from "./Login";
+---
+
 <main class="h-full grid place-content-center">
-  <section class="bg-white py-8 antialiased dark:bg-primary md:py-16 h-full">
+  <section class="py-8 antialiased dark:bg-primary md:py-16 h-full">
     <div
       class="mx-auto grid max-w-screen-xl px-4 pb-8 md:grid-cols-12 lg:gap-12 lg:pb-16 xl:gap-0"
     >
@@ -12,47 +16,49 @@
           Welcome to<br />
           <span class="font-extrabold">Chat-Doc!</span>
         </h1>
+        <Login />
         <p
           class="fade-in mb-4 max-w-2xl text-gray-500 dark:text-gray-400 md:mb-12 md:text-lg lg:mb-5 lg:text-xl"
         >
           Done by Eric Baena y Guillem Sánchez
         </p>
-      </div>
-      <div class="hidden md:col-span-5 md:mt-0 md:flex">
-        <img
-          class="hidden dark:block"
-          src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/girl-shopping-list-dark.svg"
-          alt="shopping illustration"
-        />
+
+        <div class="hidden md:col-span-5 md:mt-0 md:flex">
+          <img
+            class="hidden dark:block"
+            src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/girl-shopping-list-dark.svg"
+            alt="shopping illustration"
+          />
+        </div>
       </div>
     </div>
   </section>
+  <style>
+    @keyframes fadeInMovement {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .fade-in-movement {
+      animation: fadeInMovement 1s;
+    }
+
+    .fade-in {
+      animation: fadeIn 1s;
+    }
+  </style>
 </main>
-<style>
-  @keyframes fadeInMovement {
-    from {
-      opacity: 0;
-      transform: translateY(-50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  .fade-in-movement {
-    animation: fadeInMovement 1s;
-  }
-
-  .fade-in {
-    animation: fadeIn 1s;
-  }
-</style>
