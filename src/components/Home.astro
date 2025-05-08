@@ -1,3 +1,7 @@
+---
+import Login from "./Login";
+---
+
 <main class="h-full grid place-content-center">
   <section class="py-8 antialiased bg-primary md:py-16 h-full">
     <div
@@ -12,6 +16,7 @@
           Welcome to<br />
           <span class="font-extrabold">Chat-Doc!</span>
         </h1>
+        <Login />
         <p
           class="fade-in mb-4 max-w-2xl text-gray-500 md:mb-12 md:text-lg lg:mb-5 lg:text-3xl"
         >
@@ -27,32 +32,32 @@
       </div>
     </div>
   </section>
+  <style>
+    @keyframes fadeInMovement {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .fade-in-movement {
+      animation: fadeInMovement 1s;
+    }
+
+    .fade-in {
+      animation: fadeIn 1s;
+    }
+  </style>
 </main>
-<style>
-  @keyframes fadeInMovement {
-    from {
-      opacity: 0;
-      transform: translateY(-50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  .fade-in-movement {
-    animation: fadeInMovement 1s;
-  }
-
-  .fade-in {
-    animation: fadeIn 1s;
-  }
-</style>
