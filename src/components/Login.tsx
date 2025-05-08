@@ -78,21 +78,17 @@ function Login() {
   // Si el usuario ya está logueado, mostrar su información
   if (loggedInUser) {
     return (
-      <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md dark:bg-gray-800">
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-900 dark:text-white">
+      <div className="max-w-md mx-auto p-6 rounded-lg shadow-md bg-special">
+        <h2 className="text-2xl font-bold mb-6 text-center text-white">
           Sesión Iniciada
         </h2>
 
-        <div className="mb-4 p-4 bg-blue-50 rounded-lg border border-blue-200 dark:bg-blue-900/20 dark:border-blue-800">
-          <p className="font-medium text-gray-800 dark:text-white mb-2">
+        <div className="mb-4 p-4 rounded-lg border  bg-blue-900/20 border-blue-800">
+          <p className="font-medium text-white mb-2">
             Bienvenido/a, {loggedInUser.name}
           </p>
-          <p className="text-gray-600 dark:text-gray-300">
-            ID: {loggedInUser.id}
-          </p>
-          <p className="text-gray-600 dark:text-gray-300">
-            Email: {loggedInUser.email}
-          </p>
+          <p className="text-gray-300">ID: {loggedInUser.id}</p>
+          <p className="text-gray-300">Email: {loggedInUser.email}</p>
         </div>
 
         <button
@@ -106,15 +102,15 @@ function Login() {
   }
 
   return (
-    <div className="max-w-md mx-auto p-6 rounded-lg shadow-md dark:bg-gray-800">
+    <div className="max-w-md mx-auto p-6 rounded-lg shadow-md bg-gray-800 my-10">
       {error && (
-        <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-lg border border-red-200 dark:bg-red-900/20 dark:border-red-800 dark:text-red-400">
+        <div className="mb-4 p-3 bg-red-900/20 text-red-400 rounded-lg border border-red-800">
           {error}
         </div>
       )}
 
       {success && (
-        <div className="mb-4 p-3 bg-green-100 text-green-700 rounded-lg border border-green-200 dark:bg-green-900/20 dark:border-green-800 dark:text-green-400">
+        <div className="mb-4 p-3 bg-green-900/20 text-green-400 rounded-lg border border-green-800">
           {success}
         </div>
       )}
@@ -123,10 +119,10 @@ function Login() {
         <div className="mb-4">
           <label
             htmlFor="name"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            className="block mb-2 text-sm font-medium text-white"
           ></label>
           <input
-            className="block w-full rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-900 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+            className="block w-[90%] rounded-lg border border-gray-300 bg-gray-700 px-4 py-2 text-white shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
             type="text"
             name="name"
             id="name"
@@ -140,10 +136,10 @@ function Login() {
         <div className="mb-6">
           <label
             htmlFor="email"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            className="block mb-2 text-sm font-medium text-white"
           ></label>
           <input
-            className="block w-full rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-900 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+            className="block w-[90%] rounded-lg border border-gray-300 bg-gray-700 px-4 py-2 text-white shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
             type="email"
             name="email"
             id="email"
@@ -155,7 +151,7 @@ function Login() {
         </div>
 
         <button
-          className="w-full font-bold bg-blue-700 rounded-lg px-6 py-3.5 text-center text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:bg-blue-400 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="w-[87%] font-bold bg-blue-600 rounded-lg px-6 py-3.5 text-center text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-800 disabled:bg-blue-400"
           type="submit"
           disabled={isLoading}
         >
