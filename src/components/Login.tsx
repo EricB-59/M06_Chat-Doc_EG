@@ -14,7 +14,7 @@ function Login() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(JSON.stringify(formData));
+
     const response = await fetch("http://localhost:8000/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -23,15 +23,14 @@ function Login() {
 
     const data = await response.json();
 
-    if (!response.ok) {
+    if (!data) {
       // El servidor respondió con un error
       throw new Error(data.message || "Error al iniciar sesión");
     }
 
-    localStorage.setItem("user", JSON.stringify(data.user));
-
-    console.log("Respuesta cruda:", response);
-    console.log("Datos recibidos:", data);
+    if (data) {
+      localStorage.setItem("user", JSON.stringify(data));
+    }
   };
 
   return (

@@ -53,10 +53,12 @@ app.post("/login", (req, res) => {
 
     const dataJson = JSON.parse(data);
 
-    console.log(dataJson);
-    if (dataJson.users[1].name == recivedData.name) {
-      console.log("Nombre encontrado");
-    }
+    dataJson['users'].map((user) => {
+      if (user.name === recivedData.name && user.email === recivedData.email) {
+        res.status(201).json(user);
+      }
+    });
+
   });
 });
 
