@@ -61,8 +61,15 @@ function Chat() {
   const handleSend = (e: React.FormEvent) => {
     e.preventDefault();
     if (ws && message.trim() && ws.readyState === WebSocket.OPEN) {
+      let userData;
+      let local = localStorage.getItem("user");
+
+      if (local) {
+        userData = JSON.parse(local);
+      }
+
       const messageObj = {
-        author: "user",
+        author: userData.name,
         content: message,
         timestamp: new Date().toISOString(),
       };
@@ -74,18 +81,18 @@ function Chat() {
   };
 
   return (
-    <article className="w-full h-full flex justify-between flex-col border-2 border-secondary p-6 rounded-4xl">
+    <article className="w-full h-full flex justify-between flex-col border-2 border-secondary p-2 py-5 rounded-xl bg-slate-900">
       <li className="text-white list-none overflow-auto flex flex-col gap-2 px-4">
         {messages.map((msg, index) => (
           <MessageTemplate key={index} message={msg} />
         ))}
       </li>
-      <form onSubmit={handleSend} className="px-2 flex gap-5">
+      <form onSubmit={handleSend} className="px-2 flex gap-3 py-2">
         <input
           id="inputMessage"
           name="inputMessage"
           placeholder="Type a message"
-          className="border-2 border-secondary w-full rounded-4xl p-2 text-white"
+          className="border-2 border-secondary w-full rounded-2xl p-2 text-white"
           type="text"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
