@@ -30,8 +30,40 @@ function Chat() {
     };
 
     socket.onmessage = (event) => {
-      const messageObj = JSON.parse(event.data);
-      setMessages((prev) => [...prev, messageObj]);
+      try {
+        const data = JSON.parse(event.data);
+
+        // Manejar tanto arrays de mensajes como mensajes individuales
+        if (Array.isArray(data)) {
+          // Caso de múltiples mensajes (histórico)
+          setMessages((prev) => [
+            ...prev,
+            ...data.map((msg) => ({
+              ...msg,
+              timestamp: msg.timestamp || new Date().toISOString(),
+            })),
+          ]);
+        } else {
+          // Caso de un solo mensaje
+          const messageObj = {
+            ...data,
+            timestamp: data.timestamp || new Date().toISOString(),
+          };
+          setMessages((prev) => [...prev, messageObj]);
+        }
+      } catch (error) {
+        console.error("Error al procesar mensaje recibido:", error);
+        // Opcional: mostrar mensaje de error al usuario
+        setMessages((prev) => [
+          ...prev,
+          {
+            author: "system",
+            content: "Error al procesar mensaje recibido",
+            timestamp: new Date().toISOString(),
+            id: `error-${Date.now()}`,
+          },
+        ]);
+      }
     };
 
     socket.onerror = (error) => {

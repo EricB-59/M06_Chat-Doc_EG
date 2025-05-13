@@ -28,40 +28,19 @@
   ],
   "messages": [
     {
-      "id": "m1",
-      "roomId": "s1",
-      "senderId": "u1",
+      "author": "u1",
       "content": "Hello, this is the teacher's room.",
       "timestamp": "2025-04-20T10:00:00"
     },
     {
-      "id": "m2",
-      "roomId": "s2",
-      "senderId": "u2",
-      "content": "Hello classmates.",
-      "timestamp": "2025-04-20T10:05:00"
+      "author": "test",
+      "content": "Hola, que tal?",
+      "timestamp": "2025-05-13T07:46:03.068Z"
     },
     {
-      "id": "m3",
-      "roomId": "s3",
-      "senderId": "u2",
-      "content": "Hi Luis, shall we do the exercise together?",
-      "timestamp": "2025-04-20T10:10:00"
-    },
-    {
-      "id": "m4",
-      "roomId": "s3",
-      "senderId": "u3",
-      "content": "Yes, perfect. I'll start with the login.",
-      "timestamp": "2025-04-20T10:12:00"
-    },
-    {
-      "id": "m5",
-      "roomId": "s3",
-      "senderId": "u2",
-      "type": "system",
-      "content": "A collaborative document has been created for this room.",
-      "timestamp": "2025-04-20T10:15:00"
+      "author": "Teacher",
+      "content": "Que tal todo el mundo?",
+      "timestamp": "2025-05-13T07:46:44.045Z"
     }
   ]
 }
