@@ -28,19 +28,9 @@
   ],
   "messages": [
     {
-      "author": "u1",
-      "content": "Hello, this is the teacher's room.",
-      "timestamp": "2025-04-20T10:00:00"
-    },
-    {
-      "author": "test",
-      "content": "Hola, que tal?",
-      "timestamp": "2025-05-13T07:46:03.068Z"
-    },
-    {
       "author": "Teacher",
-      "content": "Que tal todo el mundo?",
-      "timestamp": "2025-05-13T07:46:44.045Z"
+      "content": "Hola, que tal?",
+      "timestamp": "2025-05-13T08:44:56.797Z"
     }
   ]
 }
