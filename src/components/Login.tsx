@@ -30,7 +30,7 @@ function Login() {
 
     if (data) {
       localStorage.setItem("user", JSON.stringify(data));
-      window.location.replace("http://localhost:4321/chat");
+      window.location.replace("http://localhost:4321/app");
     }
   };
 
