@@ -7,6 +7,7 @@ type DocumentContent = {
   lastEditor: string;
   lastEdited: string;
   users: string[];
+  changes: { author: string; change: string }[];
 };
 
 // Tipo para los mensajes del WebSocket
@@ -26,6 +27,12 @@ function SharedDocument() {
     lastEditor: "",
     lastEdited: "",
     users: [],
+    changes: [
+      {
+        author: "",
+        change: "",
+      },
+    ],
   });
   const [connected, setConnected] = useState(false);
   const [ws, setWs] = useState<WebSocket | null>(null);
