@@ -64,6 +64,12 @@ let documentState = {
   lastEditor: "sistema",
   lastEdited: new Date().toISOString(),
   users: [],
+  changes: [
+    {
+      author: "test",
+      change: "change"
+    }
+  ]
 };
 
 // Cargar el estado del documento
@@ -180,6 +186,8 @@ wssDocument.on("connection", function connection(ws) {
         documentState.content = messageObj.content;
         documentState.lastEditor = messageObj.editor;
         documentState.lastEdited = messageObj.timestamp;
+        documentState.changes.author = messageObj.editor;
+        documentState.changes.change = messageObj.content;
 
         // Notificar a todos los clientes sobre la actualización
         documentClients.forEach((client) => {
@@ -246,6 +254,8 @@ wssDocument.on("connection", function connection(ws) {
   ws.on("close", function () {
     documentClients.delete(ws);
     console.log("User disconnected from document");
+
+
   });
 
   ws.on("error", console.error);
